@@ -7,7 +7,7 @@
 This project focuses on setting up a Windows Server 2022 Domain Controller and a Windows 10 Client Machine in a virtualized environment. The following steps outline the process.
 <br />
 <h2> Utilities Used</h2>
-Oracel VirtualBox      Link https://www.virtualbox.org/wiki/Downloads
+Oracle VirtualBox      Link https://www.virtualbox.org/wiki/Downloads
 Windows 10 ISO         Link: https://www.microsoft.com/en-us/software-download/windows10
 Windows Server 2022    Link: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022
 <h2>Project walk-through:</h2>
@@ -35,7 +35,7 @@ Adapter 2: Attached to Internal Network <br/>
 Configure the Domain Controller <br/>
 <br Step 1.1:Domain Controller VM (Windows Server 2022)/>
 Set Static IP Address on the Internal Network ||
-Log in to Windows Server 2022  → Open Network & Internet Settings  →  || Go to Ethernet (Internal Network) → Change adapter options || Right-click Internal NIC → Properties → Internet Protocol Version 4 (TCP/IPv4)  →  || IP Address: 170.18.0.1   → || Subnet Mask: 255.255.255.0 →  || Default Gateway: Leave blank  →  || DNS Server:Use the localhost of the machine itself(127.0.0.1)  →  || Click OK and close. 
+Log in to Windows Server 2022  → Open Network & Internet Settings  →  || Go to Ethernet (Internal Network) → Change adapter options || Right-click Internal NIC → Properties → Internet Protocol Version 4 (TCP/IPv4)  →  || IP Address: 170.18.0.1   → || Subnet Mask: 255.255.255.0 →  || Default Gateway: Leave blank  →  || DNS Server Use the localhost of the machine itself(127.0.0.1)  →  || Click OK and close. 
 <br />
 <br />
 <img src="https://imgur.com/TJbPVXB.jpg"  height="80%" width="80%">
@@ -58,7 +58,7 @@ Click Next and install  → || After installation, open Server Manager → Click
 <br />
 Create decade domain admin  <br/>
    <br/>
-In Server Manager Tools → Active Directory Users and Computers →  Right click on domain new organization group unit create new user within that folder  →  || Right Click on user you just  created  → Add to a group  → Domain Admin →  Check Names  →  OK →  Sign out and sign into the account you just created 
+In Server Manager Tools → Active Directory Users and Computers →  Right click on domain new organization group unit create a new user within that folder  →  || Right Click on User you just  created  → Add to a group  → Domain Admin →  Check Names  →  OK →  Sign out and sign into the account you just created 
   <br />
 <img src="https://imgur.com/NTnQToj.jpg"  height="80%" width="80%">
 <img src="https://imgur.com/CybXl8Q.jpg"  height="80%" width="80%">
@@ -85,7 +85,7 @@ Click Next and install →  || After installation, open Server Manager → Click
 Configure RAS/NAT for Internet Access
  <br/>
 Open Server Manager → Click Manage → Add Roles and Features  → Select: Role-based installation  →   Install Remote Access → Routing 
-Click Next and install →  || After installation, open Server Manager → Click Tools →  ||  Routing and Remote Access → Open Routing and Remote Access →  ||  Right CLick on Server  → Congigure and Enable routing and Remote Access  → Configuration(NAT)  →  NAT internet connection choose Internet → Finish || 
+Click Next and install →  || After installation, open Server Manager → Click Tools →  ||  Routing and Remote Access → Open Routing and Remote Access →  ||  Right CLick on Server  → Configure and Enable Routing and Remote Access  → Configuration(NAT)  →  NAT internet connection choose Internet → Finish || 
 Your Internal machines should now have internet access
 <br />
 <br />
@@ -116,7 +116,7 @@ List of Users .txt
 <br />
 
 <p align="center">
-Create two CLIENT Virtual Michine and Join the domain (Windows 10)
+Create two CLIENT Virtual Machine and Join the domain (Windows 10)
  <br/>
 Click New in VirtualBox  → Name the VM  → Click Settings → Network and set Adapter 1  Attached to Internal Network →  Start the VM and install Windows 10, after Installation is complete  → ||
 Join Windows 10 Client to the Domain  → Log into Windows 10  → open Command Prompt ipconfig /all to check if DHCP assigned an IP →  ping IP Address(170.18.0.1) → Change System Name  → Rename this PC(Advanced)→ Change →Member of Domain(enter domain name) →Enter Administrator credentials from DC
